@@ -1,0 +1,13 @@
+github io 
+로컬 
+폴더 -> vscode (code .)
+vscode 에서 
+extension : live server 설치 
+
+tail wind css
+
+사진 100kb
+tinypng
+
+favicon
+쬐끄만 이미지 
