@@ -1,0 +1,171 @@
+%% moderncv
+%% banking style, blue theme
+
+\documentclass[11pt, a4paper]{moderncv}
+\moderncvstyle{banking}
+\moderncvcolor{blue}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[scale=0.85]{geometry}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+%% Publication entry styling: title (bold, colored) / authors (small, gray) / venue (small italic)
+\newcommand{\pubtitle}[2]{\href{#1}{\textbf{\textcolor{color1}{#2}}}}
+\newcommand{\pubauthors}[1]{{\small\color{darkgray}#1}}
+\newcommand{\pubvenue}[1]{{\small\itshape #1}}
+\newcommand{\pubtask}[1]{{\small\textcolor{color1}{$\triangleright$}~#1}}
+
+%% Personal Info
+\name{}{Hajung Kim}
+\title{Ph.D. Student}
+\address{Korea University}{Seoul, South Korea}
+\email{hajungk@korea.ac.kr}
+\social[googlescholar]{jOqjl4IAAAAJ}
+
+%%------------------------------------------------------------
+\begin{document}
+
+%% Custom header with photo
+\noindent
+\begin{minipage}[t]{0.76\textwidth}
+  \makecvtitle
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.18\textwidth}
+  \vspace{-4.5em}
+  \raggedleft
+  \includegraphics[width=\linewidth]{photo.jpg}
+\end{minipage}
+\vspace{-2em}
+
+%%------------------------------------------------------------
+\section{Research Interests}
+My research focuses on applying AI to \textbf{drug discovery}, with the goal of modeling how small molecules act in biological systems.
+I began with \textbf{compound--cell response prediction}, ranking the gene expression changes that drug perturbations induce in cells~[\ref{pub:badger}].
+I then moved to the molecule level with \textbf{activity cliff prediction}, capturing how subtle structural differences between molecules lead to large changes in activity~[\ref{pub:graphcliff}],
+and most recently to \textbf{drug metabolism}, predicting cytochrome P450 sites of metabolism across isoforms~[\ref{pub:attnsom}].
+
+\smallskip
+Beyond this main line, I have worked on \textbf{retrosynthesis planning}~[\ref{pub:retro}] and \textbf{compound--protein interaction prediction}~[\ref{pub:perceivercpi}],
+as well as \textbf{biomedical natural language processing}, including LLM-based biomedical question answering and radiology report summarization~[\ref{pub:bioasq}, \ref{pub:radsum}].
+
+%%------------------------------------------------------------
+\section{Education}
+
+\cventry{2023.09 -- Present}
+  {Ph.D. in Computer Science \& Engineering}
+  {Korea University}{Seoul, South Korea}{}
+  {DMIS Lab \quad Advisor: Prof.\ Jaewoo Kang}
+
+\cventry{2021.09 -- 2023.08}
+  {M.S. in Bioinformatics Interdisciplinary Program}
+  {Korea University}{Seoul, South Korea}{}
+  {DMIS Lab \quad Advisor: Prof.\ Jaewoo Kang}
+
+\cventry{2016.02 -- 2021.08}
+  {B.S. in Biotechnology}
+  {Korea University}{Seoul, South Korea}{}{}
+
+%%------------------------------------------------------------
+\section{Experience}
+
+\cventry{2023.04 -- 2024.04}
+  {Research Intern}
+  {AstraZeneca}{}{}
+  {\begin{itemize}
+    \item Named entity recognition of drugs, diseases, and genes in biomedical text.
+    \item Fine-tuned LLaMA models and applied GPT models for LLM-based biomedical entity extraction.
+  \end{itemize}}
+
+\cventry{2022.09 -- 2022.12}
+  {Data Scientist}
+  {SK Nexilis}{}{}
+  {\begin{itemize}
+    \item Developed a recipe recommendation model for battery foil plating additives.
+    \item Given user-specified target material properties, suggested additive combinations to achieve them.
+  \end{itemize}}
+
+%%------------------------------------------------------------
+\section{Publications}
+\textit{* equal contribution}
+\vspace{4pt}
+
+\begin{enumerate}
+  \renewcommand{\labelenumi}{[\theenumi]}
+  \setlength{\itemsep}{4pt}
+
+  \item\label{pub:graphcliff}
+    \pubtitle{https://arxiv.org/abs/2511.03170}{GraphCliff: Short--Long Range Gating for Modeling Critical Activity Changes Caused by Subtle Molecular Differences}\\
+    \pubauthors{\textbf{Hajung Kim}, Jueon Park, Junseok Choe, Seungheun Baek, Hyeon Hwang, Jaewoo Kang}\\
+    \pubvenue{KDD 2026}\\
+    \pubtask{Activity cliff prediction}
+
+  \item\label{pub:attnsom}
+    \pubtitle{https://arxiv.org/abs/2601.20891}{ATTNSOM: Learning Cross-Isoform Attention for Cytochrome P450 Site-of-Metabolism}\\
+    \pubauthors{\textbf{Hajung Kim}, Eunha Lee, Sohyun Chung, Jueon Park, Seungheun Baek, Jaewoo Kang}\\
+    \pubvenue{ISMB 2026, Bioinformatics}\\
+    \pubtask{Cytochrome P450 site-of-metabolism prediction}
+
+  \item\label{pub:bioasq}
+    \pubtitle{https://ceur-ws.org/Vol-4038/}{Prompting matters: snippet-aware strategies for biomedical QA with LLMs in BioASQ 13b}\\
+    \pubauthors{\textbf{Hajung Kim}, Hoonick Lee, Yewon Cho, Jungwoo Park, Jueon Park, Soyon Park,
+      Yan Ting Chok, Seungheun Baek, Donghyeon Lee, Jaewoo Kang}\\
+    \pubvenue{CLEF 2025}\\
+    \pubtask{Biomedical question answering with LLMs}
+
+  \item\label{pub:retro}
+    \pubtitle{https://jcheminf.biomedcentral.com/articles/10.1186/s13321-025-01088-z}{Retrosynthetic crosstalk between single-step reaction and multi-step planning}\\
+    \pubauthors{Junseok Choe*, \textbf{Hajung Kim}*, Yan Ting Chok, Mogan Gim, Jaewoo Kang}\\
+    \pubvenue{Journal of Cheminformatics, 2025}\\
+    \pubtask{Single-step and multi-step retrosynthesis planning}
+
+  \item\label{pub:badger}
+    \pubtitle{https://academic.oup.com/bioinformaticsadvances/article-abstract/5/1/vbaf029/8020789}{BADGER: biologically-aware interpretable differential gene expression ranking model}\\
+    \pubauthors{\textbf{Hajung Kim}*, Mogan Gim*, Seungheun Baek, Soyon Park, Sunkyu Kim, Jaewoo Kang}\\
+    \pubvenue{Bioinformatics Advances, 2025}\\
+    \pubtask{Compound--cell response (drug-induced gene expression) prediction}
+
+  \item\label{pub:perceivercpi}
+    \pubtitle{https://academic.oup.com/bioinformatics/article/39/1/btac731/6842322}{Perceiver CPI: a nested cross-attention network for compound--protein interaction prediction}\\
+    \pubauthors{Ngoc Quoc Nguyen, Gwanghoon Jang, \textbf{Hajung Kim}, Jaewoo Kang}\\
+    \pubvenue{Bioinformatics, 2023}\\
+    \pubtask{Compound--protein interaction prediction}
+
+  \item\label{pub:radsum}
+    \pubtitle{https://aclanthology.org/2023.bionlp-1.59/}{KU-DMIS-MSRA at RadSum23: Pre-trained Vision-Language Model for Radiology Report Summarization}\\
+    \pubauthors{Gangwoo Kim, \textbf{Hajung Kim}, Lei Ji, Seongsu Bae, Chanhwi Kim, Mujeen Sung,
+      Hyunjae Kim, Kun Yan, Eric Chang, Jaewoo Kang}\\
+    \pubvenue{BioNLP Workshop @ ACL 2023}\\
+    \pubtask{Radiology report summarization}
+
+\end{enumerate}
+
+%%------------------------------------------------------------
+\section{Honors \& Awards}
+
+\cventry{Sep.\ 2025}
+  {1st place, BioASQ 13B Challenge}
+  {CLEF 2025}{}{}
+  {Biomedical question answering challenge using large language models with snippet-aware prompting strategies.}
+
+\cventry{Sep.\ 2023}
+  {1st place, RadSum23 Challenge}
+  {BioNLP Workshop @ ACL 2023}{}{}
+  {Radiology report summarization challenge using pre-trained vision-language models.}
+
+%%------------------------------------------------------------
+%% TODO: fill in, then uncomment
+% \section{Services}
+% \cvitem{Reviewer}{Venue A (2025, 2026), Venue B (2025)}
+% \cvitem{Second Reviewer}{Venue C (2024), Venue D (2023)}
+
+%%------------------------------------------------------------
+%% TODO: fill in, then uncomment
+% \section{Teaching}
+% \cventry{Fall 2024}{Teaching Assistant}{COSE000: Course Name}{Korea University}{}{Prof.\ Name}
+% \cventry{Spring 2023}{Teaching Assistant}{BIOI000: Course Name}{Korea University}{}{Prof.\ Name}
+
+%%------------------------------------------------------------
+\end{document}
